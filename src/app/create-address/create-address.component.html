@@ -1,0 +1,34 @@
+<div class="col-md-8 offset-md-3">
+    <h3>Create Address</h3>
+    <form #addressForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" id="Name" [(ngModel)]="Addresses.name" name="name"
+          pattern="^[A-Za-z\s]+$" required #name="ngModel">
+        <div *ngIf="name.invalid && name.touched" class="text-danger">
+          Name should contain only letters and spaces.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" id="Email" [(ngModel)]="Addresses.address" name="Address"
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" required #email="ngModel">
+        <div *ngIf="email.invalid && email.touched" class="text-danger">
+          Enter a valid email address.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" class="form-control" id="City" [(ngModel)]="Addresses.phoneNumber" name="phoneNumber"
+          pattern="^[A-Za-z\s]+$" required #city="ngModel">
+        <div *ngIf="city.invalid && city.touched" class="text-danger">
+          City name should contain only letters and spaces.
+        </div>
+      </div>
+  
+      <button class="btn btn-success" type="submit" [disabled]="addressForm.invalid">Submit</button>
+    </form>
+  </div>
+  

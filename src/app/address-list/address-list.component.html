@@ -1,0 +1,25 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>address</th>
+            <th>phoneNumber</th>
+            <th>Actions</th>
+        </tr>
+    </thead>    
+    <tbody>
+        <tr *ngFor="let Address of Addresses">
+            <td>{{ Address.name }}</td>
+            <td>{{ Address.address }}</td>
+            <td>{{ Address.phoneNumber }}</td>
+            <td>
+                <button *ngIf="Address.id !== undefined" (click)="updateAddress(Address.id)" class="btn">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button *ngIf="Address.id !== undefined" (click)="deleteAddress(Address.id)" class="btn" style="margin-left: 10px;">
+                    <i class="fas fa-trash-alt"></i>
+                </button>                  
+            </td>
+        </tr>
+    </tbody>
+</table>
